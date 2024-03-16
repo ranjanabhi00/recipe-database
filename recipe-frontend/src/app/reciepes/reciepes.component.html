@@ -1,0 +1,17 @@
+<p>reciepes works!</p>
+            
+           <div class="recipe-wrapper">
+            <div *ngFor="let rec of recipes" class="card">
+                <img [src]="rec.imageUrl" alt="recipe image"/>
+                <p>
+                    {{rec.name}}
+                </p>
+                <p>
+                    {{rec.description}}
+                </p>
+            </div>
+           </div>
+
+      
+        
+

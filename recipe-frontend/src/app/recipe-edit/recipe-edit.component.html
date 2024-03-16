@@ -1,0 +1,13 @@
+<p>recipe-edit works!</p>
+<form class="form" [formGroup]="ingredient" (ngSubmit)="addIngredient()">
+    <input placeholder="Enter Ingredient Name" formControlName="name"/>
+    <input placeholder="Enter Quantity of Ingredient" formControlName="quantity"/>
+    <button>Add Ingredient</button>
+</form>
+<form class="form" [formGroup]="recipe" (ngSubmit)="createRecipe()">
+    <input placeholder="Enter Recipe Name" formControlName="name"/>
+    <input placeholder="Enter Description " formControlName="description"/>
+    <input placeholder="Enter Calory Content" formControlName="calories"/>
+    <input placeholder="Enter Image Url for Recipe" formControlName="imageUrl"/>
+    <button>Create Recipe</button>
+</form>
