@@ -1,17 +1,20 @@
-<p>reciepes works!</p>
-            
-           <div class="recipe-wrapper">
-            <div *ngFor="let rec of recipes" class="card">
-                <img [src]="rec.imageUrl" alt="recipe image"/>
-                <p>
-                    {{rec.name}}
-                </p>
-                <p>
-                    {{rec.description}}
-                </p>
-            </div>
-           </div>
-
-      
-        
-
+<div *ngIf="loading; else content">
+  <p>Loading...</p>
+</div>
+<ng-template #content>
+  <div class="recipe-wrapper">
+    <div *ngFor="let rec of recipes" class="card">
+      <img [src]="rec.imageUrl" alt="recipe image" />
+      <p>
+        {{ rec.name }}
+      </p>
+      <p>
+        {{ rec.description }}
+      </p>
+      <div class="navigate">
+      <a [routerLink] = "['/recipe', rec.id]">View Details</a>
+      <a [routerLink] = "['/recipe/create']">Create Recipe</a>
+      </div>
+    </div>
+  </div>
+</ng-template>

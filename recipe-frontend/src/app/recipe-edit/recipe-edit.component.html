@@ -4,10 +4,10 @@
     <input placeholder="Enter Quantity of Ingredient" formControlName="quantity"/>
     <button>Add Ingredient</button>
 </form>
-<form class="form" [formGroup]="recipe" (ngSubmit)="createRecipe()">
+<form class="form" [formGroup]="recipe" (ngSubmit)="editRecipe()">
     <input placeholder="Enter Recipe Name" formControlName="name"/>
     <input placeholder="Enter Description " formControlName="description"/>
     <input placeholder="Enter Calory Content" formControlName="calories"/>
     <input placeholder="Enter Image Url for Recipe" formControlName="imageUrl"/>
-    <button>Create Recipe</button>
+    <button>Edit Recipe</button>
 </form>

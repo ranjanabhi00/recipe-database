@@ -1,40 +1,25 @@
 import { NgFor } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-reciepes',
-  standalone: true,
-  imports: [NgFor],
   templateUrl: './reciepes.component.html',
   styleUrl: './reciepes.component.css'
 })
-export class ReciepesComponent {
+export class ReciepesComponent implements OnInit{
+  constructor(private httpClient:HttpClient){}
+  recipes:Recipe[]=[]
+  loading=false;
 
-  recipes:Recipe[]=[
-     {
-      id:'1',
-      name:'Samosa',
-      description:"It is a fast food",
-      ingredients:[{name:'wheat flour',quantity:"230"}],
-      calories:"234"
-
-     },
-     {
-      id:'2',
-      name:'Samosa',
-      description:"It is a fast food",
-      ingredients:[{name:'wheat flour',quantity:"230"}],
-      calories:"234"
-
-     },
-     {
-      id:'3',
-      name:'Samosa',
-      description:"It is a fast food",
-      ingredients:[{name:'wheat flour',quantity:"230"}],
-      calories:"234"
-
-     },
-  ]
+  ngOnInit(): void {
+    const api='http://localhost:3000/recipe'
+    this.loading=true
+    this.httpClient.get<Recipe[]>(api).subscribe((data)=>{
+      this.recipes=data
+      this.loading=false
+    })
+  }
 
 }

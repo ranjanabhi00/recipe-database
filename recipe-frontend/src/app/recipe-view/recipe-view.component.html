@@ -1,1 +1,23 @@
-<p>recipe-view works!</p>
+<div *ngIf="loading else content">
+    <p>Loading...</p>
+</div>
+<ng-template #content>
+<div class="card">
+<img [src]="recipe?.imageUrl" [alt]="recipe?.name"/>
+<p>{{recipe?.name}}</p>
+<p>Calories:{{" "}}{{recipe?.calories}}</p>
+<p>{{recipe?.description}}</p>
+<div *ngIf="recipe?.ingredients?.length">
+    <p>Ingredients</p>
+    <div *ngFor="let ingredient of recipe?.ingredients" class="ingredient">
+      <p>{{ingredient?.name}}</p>
+      <p>{{ingredient?.quantity}}</p>
+    </div>
+
+</div>
+<div class="navigate">
+    <a [routerLink] = "['/recipe/edit', recipe?.id]">Edit Recipe</a>
+     <a [routerLink] = "['/recipes']">Go to All Recipes</a>
+    </div>
+</div>
+</ng-template>
