@@ -12,6 +12,7 @@ export class ReciepesComponent implements OnInit{
   constructor(private httpClient:HttpClient){}
   recipes:Recipe[]=[]
   loading=false;
+  imagePlaceholder='https://st2.depositphotos.com/3889193/7173/i/450/depositphotos_71739083-stock-photo-healthy-vegetarian-home-made-food.jpg'
 
   ngOnInit(): void {
     const api='http://localhost:3000/recipe'

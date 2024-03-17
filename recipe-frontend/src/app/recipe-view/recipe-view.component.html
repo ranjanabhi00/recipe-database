@@ -3,7 +3,7 @@
 </div>
 <ng-template #content>
 <div class="card">
-<img [src]="recipe?.imageUrl" [alt]="recipe?.name"/>
+<img [src]="recipe?.imageUrl || imagePlaceholder" [alt]="recipe?.name"/>
 <p>{{recipe?.name}}</p>
 <p>Calories:{{" "}}{{recipe?.calories}}</p>
 <p>{{recipe?.description}}</p>

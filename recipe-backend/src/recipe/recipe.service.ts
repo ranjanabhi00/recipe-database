@@ -73,18 +73,13 @@ export class RecipeService {
       if (!recipes || !recipes?.length)
         return new Error(`Recipe with id ${id} does not exist`);
       const { name, description, calories, imageUrl } = updateRecipeDto;
-      const ingredientsPromises = updateRecipeDto.ingredients.map(
-        (ingredient: Ingredient) => {
-          this.ingredientRepository.save(ingredient);
-        },
-      );
-      const savedIngredients = await Promise.all(ingredientsPromises);
+     
       const recipe = recipes[0];
       if (!!name) recipe.name = name;
       if (!!description) recipe.description = description;
       if (!!calories) recipe.calories = calories;
-      if (imageUrl) recipe.imageUrl = imageUrl;
-      if (!!updateRecipeDto.ingredients.length){
+      if (!!imageUrl) recipe.imageUrl = imageUrl;
+      if (!!updateRecipeDto.ingredients?.length){
        let  ingredientsPromises = updateRecipeDto.ingredients.map(
           (ingredient: Ingredient) => {
             return this.ingredientRepository.save(ingredient);

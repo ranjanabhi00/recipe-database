@@ -11,7 +11,7 @@ export class RecipeViewComponent implements OnInit{
 
   constructor(private httpClient:HttpClient,private route:ActivatedRoute){}
   loading=false;
- 
+  imagePlaceholder='https://st2.depositphotos.com/3889193/7173/i/450/depositphotos_71739083-stock-photo-healthy-vegetarian-home-made-food.jpg'
 
   recipe:Recipe|null=null
 
